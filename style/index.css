@@ -1,0 +1,83 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /*Primary colors*/
+    --linear-gradient-one: linear-gradient(to left bottom, #6448fe, #6939e2, #6929c7, #6619ad, #600594);
+    --red: #ff5252;
+
+    /*Neutral*/
+    --white: #ffffff;
+    --light-grayish-violet: #dedddf;
+    --dark-grayish-violet: 	#8e8593;
+    --very-dark-violet: #21092f;
+
+    /*Font size*/
+    --primary-size: 1.8rem;
+
+    /*Font*/
+    --primary-font: 'Space Grotesk', sans-serif;;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: var(--primary-font);
+    font-size: var(--primary-size);
+    color: var(--white);
+}
+
+.payment-container {
+    width: 100%;
+    height: 100%;
+}
+
+.card-container {
+    display: grid;
+    width: 100%;
+    height: 30%;
+    padding: 20px;
+    background-color: bisque;
+    position: relative;
+    background-image: url("../assets/bg-main-mobile.png ");
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+}
+
+.card-container__back-card {
+    width: 281px;
+    height: 150px;
+    align-self: center;
+    justify-self: end;
+    background-image: url("../assets/bg-card-back.png");
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.card-container__front-card {
+    position: absolute;
+    bottom: -60px;
+    left: 20px;
+    width: 281px;
+    height: 150px;
+    background-image: url("../assets/bg-card-front.png");
+    background-position: center;
+    background-repeat: none;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+.info-container {
+    width: 100%;
+    height: 70%;
+}
