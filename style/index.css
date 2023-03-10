@@ -19,7 +19,8 @@
     --primary-size: 1.8rem;
 
     /*Font*/
-    --primary-font: 'Space Grotesk', sans-serif;;
+    --primary-font: 'Space Grotesk', sans-serif;
+    --font-weight: 500;
 }
 
 html {
@@ -27,11 +28,15 @@ html {
 }
 
 body {
+    max-width: 460px;
+    min-width: 305px;
     width: 100%;
     height: 100vh;
+    margin: auto;
     font-family: var(--primary-font);
     font-size: var(--primary-size);
-    color: var(--white);
+    font-weight: var(--font-weight);
+    background-color: var(--white);
 }
 
 .payment-container {
@@ -53,10 +58,15 @@ body {
 }
 
 .card-container__back-card {
+    display: grid;
+    align-self: center;
+    align-items: center;
+    justify-self: end;
+    justify-content: end;
     width: 281px;
     height: 150px;
-    align-self: center;
-    justify-self: end;
+    padding: 40px 35px;
+    color: var(--white);
     background-image: url("../assets/bg-card-back.png");
     background-position: center;
     background-repeat: none;
@@ -64,7 +74,19 @@ body {
     border-radius: 10px;
 }
 
+.card-container__segurity-code {
+    font-size: 1rem;
+}
+
 .card-container__front-card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 
+        "top-img top top"
+        "mid mid mid"
+        "bot bot bot-date";
+    place-items: center;
     position: absolute;
     bottom: -60px;
     left: 20px;
@@ -75,9 +97,102 @@ body {
     background-repeat: none;
     background-size: cover;
     border-radius: 10px;
+    letter-spacing: 0.2rem;
 }
 
-.info-container {
+.card-container__bank-image {
+    grid-area: top-img;
+    justify-self: start;
+    width: 25px;
+    height: 25px;
+    margin: 25px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.card-container__circle {
+    grid-area: top-img;
+    width: 10px;
+    height: 10px;
+    margin-left: 50px;
+    border: solid var(--white) 1px;
+    border-radius: 50%;
+}
+
+.card-container__number {
+    grid-area: mid;
+}
+
+.card-container__name {
+    grid-area: bot;
+    margin: 25px;
+    justify-self: start;
+    font-size: 1rem;
+}
+
+.card-container__date {
+    grid-area: bot-date;
+    font-size: 1rem;
+}
+
+/*Formulario*/
+.form-container {
     width: 100%;
     height: 70%;
+    margin-top: 100px;
+    padding: 0px 20px;
 }
+
+.form-container__container {
+    display: grid;
+    margin: 20px 0;
+}
+
+.form-container__label {
+    height: 18px;
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    letter-spacing: 0.2rem;
+    color: var(--very-dark-violet);
+}
+
+.form-container__input {
+    width: 100%;
+    height: 40px;
+    padding: 15px;
+    border: var(--light-grayish-violet) 1px solid;
+    border-radius: 10px;
+}
+
+.form-container__input::placeholder {
+    font-family: var(--primary-font);
+    font-size: var(--primary-size);
+    letter-spacing: 0.2rem;
+    color: var(--light-grayish-violet);
+}
+
+.form-container__container--colum {
+    margin: 0;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-container__input--colum {
+    width: 70px;
+    align-self: center;
+    justify-self: start;
+}
+
+.form-container__input--cvc {
+    width: 100%;
+}
+
+.main-button {
+    width: 100%;
+    height: 60px;
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: var(--primary-font);
+    background-color: var(--very-dark-violet);
+}
+
