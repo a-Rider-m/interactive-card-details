@@ -241,3 +241,51 @@ body {
 .inactive {
     display: none;
 }
+
+@media (min-width: 600px) {
+    body {
+        max-width: none;
+        min-width: none;
+    }
+
+    .payment-container {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .card-container {
+        height: 100%;
+        background-image: url("../assets/bg-main-desktop.png");
+    }
+
+    .card-container__back-card {
+        position: relative;
+        width: 400px;
+        height: 230px;
+        top: 200px;
+        right: -190px;
+    }
+
+    .card-container__front-card {
+        top: -300px;
+        left: -80px;
+        width: 400px;
+        height: 230px;
+    }
+
+    .form-container {
+        place-self: center;
+        max-width: 400px;
+    }
+
+    .main-button {
+        margin-top: 20px;
+        cursor: pointer;
+    }
+
+    .success-container {
+        place-self: center;
+        max-width: 400px;
+    }
+}
