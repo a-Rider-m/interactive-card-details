@@ -44,6 +44,7 @@ body {
     height: 100%;
 }
 
+/*Contenedor de tarjeta*/
 .card-container {
     display: grid;
     width: 100%;
@@ -196,3 +197,37 @@ body {
     background-color: var(--very-dark-violet);
 }
 
+/*Datos agregados con exito*/
+.form-container__confirm {
+    display: grid;
+    grid-template-rows:     1fr 1fr;
+    justify-items: center;
+    align-items: end;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.confirm__img {
+    width: 80px;
+    height: 80px;
+}
+
+.confirm__img img {
+    width: 100%;
+}
+
+.confirm__h {
+    margin-top: 30px;
+    letter-spacing: 0.2rem;
+}
+
+.confirm__p {
+    margin-top: 10px;
+    color: var(--dark-grayish-violet);
+}
+
+.inactive {
+    display: none;
+}
