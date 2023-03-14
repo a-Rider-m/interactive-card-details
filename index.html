@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <form action="" class="form-container">
+        <form action="" class="form-container inactive">
              <div class="form-container__container">
                 <label class="form-container__label" for="name-card">CARDHOLDER NAME</label>
                 <input class="form-container__input" placeholder="e.g. Oswaldito Jose" type="text" id="name-card">
@@ -41,23 +41,23 @@
                 </div>
                 <div class="form-container__container">
                     <label class="form-container__label" for="segurity-code">CVC</label>
-                    <input class="form-container__input form-container__input--cvc" placeholder="e.g. 123" inputmode="numeric"  type="number" id="segurity-code">
+                    <input class="form-container__input form-container__input--cvc" placeholder="e.g. 123" inputmode="numeric"  type="text" id="segurity-code">
                 </div>
             </div>
             <input value="Confirm" class="main-button" type="submit">
 
         </form>
-        <div class="form-container inactive">
-            <div class="form-container__confirm">
-                <div class="confirm__img">
+        <div class="success-container">
+            <div class="success-container__success">
+                <div class="success__img">
                     <img src="./assets/icon-complete.svg" alt="Check img"></img>
                 </div>
-                <div class="confirm__text">
-                    <h2 class="confirm__h">THANK YOU!</h2>
-                    <P class="confirm__p">We've added your card details</P>
+                <div class="success__text">
+                    <h2 class="success__h">THANK YOU!</h2>
+                    <P class="success__p">We've added your card details</P>
                 </div>
+                <button class="main-button">Continue</button>
             </div>
-            <button class="main-button">Continue</button>
         </div>
     </main>
 </body>

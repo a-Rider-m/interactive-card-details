@@ -139,7 +139,7 @@ body {
 /*Formulario*/
 .form-container {
     width: 100%;
-    height: 70%;
+    height: auto;
     margin-top: 100px;
     padding: 0px 20px;
 }
@@ -198,7 +198,14 @@ body {
 }
 
 /*Datos agregados con exito*/
-.form-container__confirm {
+.success-container {
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+    padding: 0px 20px;
+}
+
+.success-container__success {
     display: grid;
     grid-template-rows:     1fr 1fr;
     justify-items: center;
@@ -206,24 +213,27 @@ body {
     text-align: center;
     width: 100%;
     height: auto;
-    margin-bottom: 50px;
 }
 
-.confirm__img {
+.success__img {
     width: 80px;
     height: 80px;
 }
 
-.confirm__img img {
+.success__img img {
     width: 100%;
 }
 
-.confirm__h {
+.success__text {
+    margin-bottom: 50px;
+}
+
+.success__h {
     margin-top: 30px;
     letter-spacing: 0.2rem;
 }
 
-.confirm__p {
+.success__p {
     margin-top: 10px;
     color: var(--dark-grayish-violet);
 }
