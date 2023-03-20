@@ -11,22 +11,6 @@ const cleave = new Cleave('.card-number', {
     creditCard: true,
 });
 
-confirmButton.addEventListener('click', toggleFormInactive);
-continueButton.addEventListener('click', refreshSite);
-
-function toggleFormInactive() {
-    const isFormInactive = formContainer.classList.contains('inactive');
-
-    if (!isFormInactive) {
-        formContainer.classList.add('inactive');
-        successContainer.classList.toggle('inactive');
-    }
-}
-
-function refreshSite() {
-    document.location.reload();
-}
-
 function updateCardInfo (inputSelector, outPutSelector, defaulText) {
     const inputs = document.querySelector(inputSelector);
     const outPutCard = document.querySelector(outPutSelector);
@@ -45,3 +29,17 @@ updateCardInfo('.card-number', '.card-container__number', "0000 0000 0000 0000")
 updateCardInfo('.input-month', '.card-container__month', "00");
 updateCardInfo('.input-year', '.card-container__year', "00");
 updateCardInfo('.input-cvc', '.card-container__segurity-code', "000");
+
+confirmButton.addEventListener('click', () => {
+    const isFormInactive = formContainer.classList.contains('inactive');
+
+    if (!isFormInactive) {
+        formContainer.classList.add('inactive');
+        successContainer.classList.toggle('inactive');
+    }
+});
+
+continueButton.addEventListener('click', () => {
+    document.location.reload();
+});
+
