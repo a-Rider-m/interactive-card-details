@@ -179,6 +179,11 @@ body {
     color: var(--light-grayish-violet);
 }
 
+.form-container__input:focus {
+    border: 1px solid var(--very-dark-violet);
+    outline: none;
+}
+
 .form-container__container--colum {
     margin: 0;
     grid-template-columns: repeat(2, 1fr);

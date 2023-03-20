@@ -6,11 +6,12 @@ const continueButton = document.querySelector('#continue-button');
 const formContainer = document.querySelector('.form-container');
 const successContainer = document.querySelector('.success-container');
 
-
+//Formato de tarjeta bancaria
 const cleave = new Cleave('.card-number', {
     creditCard: true,
 });
 
+//Funcion para actualizar en tiempo real los datos de tarjeta
 function updateCardInfo (inputSelector, outPutSelector, defaulText) {
     const inputs = document.querySelector(inputSelector);
     const outPutCard = document.querySelector(outPutSelector);
@@ -30,6 +31,7 @@ updateCardInfo('.input-month', '.card-container__month', "00");
 updateCardInfo('.input-year', '.card-container__year', "00");
 updateCardInfo('.input-cvc', '.card-container__segurity-code', "000");
 
+//Funciones para botones
 confirmButton.addEventListener('click', () => {
     const isFormInactive = formContainer.classList.contains('inactive');
 
