@@ -184,6 +184,18 @@ body {
     outline: none;
 }
 
+.form-container__error-format {
+    border: 1px solid var(--red);
+    outline: none;
+}
+
+.form-container__container__errortext {
+    display: none;
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: var(--red);
+}
+
 .form-container__container--colum {
     margin: 0;
     grid-template-columns: repeat(2, 1fr);
