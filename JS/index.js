@@ -6,6 +6,15 @@ const continueButton = document.querySelector('#continue-button');
 const formContainer = document.querySelector('.form-container');
 const successContainer = document.querySelector('.success-container');
 
+const everyInput = document.querySelectorAll('.form-container__input')
+const expresiones = {
+    name: /[a-zA-Z\ ]+/, //letras, espacios
+}
+
+everyInput.forEach(() => {
+    console.log("funciona");
+})
+
 //Formato de tarjeta bancaria
 const cleave = new Cleave('.card-number', {
     creditCard: true,
