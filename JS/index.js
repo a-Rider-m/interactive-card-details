@@ -1,3 +1,5 @@
+const formulario = document.querySelector('.form-container');
+
 //Botones
 const confirmButton = document.querySelector('.main-button');
 const continueButton = document.querySelector('#continue-button');
@@ -8,12 +10,45 @@ const successContainer = document.querySelector('.success-container');
 
 const everyInput = document.querySelectorAll('.form-container__input')
 const expresiones = {
-    name: /[a-zA-Z\ ]+/, //letras, espacios
+    name: /^[a-zA-Z\ ]{2,30}$/, //letras, espacios
 }
 
-everyInput.forEach(() => {
-    console.log("funciona");
+function validarFormulario(e) {
+    switch(e.target.name) {
+        case "card-holder":
+            if(expresiones.name.test(e.target.value)) {
+                document.getElementById('name-card').classList.remove('form-container__error-format');
+                document.getElementById('name-card').classList.add('form-container__input-correct');
+                document.querySelector('.form-container__container__errortext').classList.remove('form-container__container__errortext--activo'); 
+            }else {
+                document.getElementById('name-card').classList.add('form-container__error-format');
+                document.getElementById('name-card').classList.remove('form-container__input-correct'); 
+                document.querySelector('.form-container__container__errortext').classList.add('form-container__container__errortext--activo'); 
+            }
+        break;
+        case "card-number":
+            console.log("funcina")
+        break;
+        case "card-month":
+            console.log("funcina")
+        break;
+        case "card-year":
+            console.log("funcina")
+        break;
+        case "card-cvc":
+            console.log("funciona")
+        break;
+    }
+};
+
+everyInput.forEach((input) => {
+    input.addEventListener('keyup', validarFormulario);
+    input.addEventListener('blur', validarFormulario);
 })
+
+formulario.addEventListener('submit', (e)=> {
+    e.preventDefault();
+});  
 
 //Formato de tarjeta bancaria
 const cleave = new Cleave('.card-number', {

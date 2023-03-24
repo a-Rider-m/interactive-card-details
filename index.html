@@ -28,26 +28,26 @@
         <form action="#" class="form-container">
              <div class="form-container__container">
                 <label class="form-container__label" for="name-card">CARDHOLDER NAME</label>
-                <input class="form-container__input card-holder-name" placeholder="e.g. Oswaldito Jose" type="text" id="name-card">
-                <p class="form-container__container__errortext">Can't be blank</p>
+                <input name="card-holder" class="form-container__input-correct form-container__input card-holder-name" placeholder="e.g. Oswaldito Jose" type="text" id="name-card">
+                <p class="form-container__container__errortext form-container__container__errortext">Name cannot be left blank and can only contain letters.</p>
             </div>
             <div class="form-container__container">
                 <label class="form-container__label" for="number-card">CARD NUMBER</label>
-                <input class="form-container__input card-number" placeholder="e.g. 1234 5678 9129 0000" inputmode="numeric" type="text" id="number-card"">
+                <input name="card-number" class="form-container__input-correct form-container__input card-number" placeholder="e.g. 1234 5678 9129 0000" inputmode="numeric" type="text" id="number-card"">
                 <p class="form-container__container__errortext">Wrong format, numbers only</p>
             </div>
             <div class="form-container__container form-container__container--colum">
                 <div class="form-container__container">
                     <label class="form-container__label" for="date-month date-year">EXP. DATE (MM/YY)</label>
                     <div class="form-container__container form-container__container--colum">
-                        <input class="form-container__input form-container__input--colum input-month" placeholder="MM" inputmode="numeric" type="text" id="date-month" maxlength="2">
-                        <input class="form-container__input form-container__input--colum input-year" placeholder="YY" inputmode="numeric" type="text" id="date-year" maxlength="2">
+                        <input name="card-month" class="form-container__input-correct form-container__input form-container__input--colum input-month" placeholder="MM" inputmode="numeric" type="text" id="date-month" maxlength="2">
+                        <input name="card-year" class="form-container__input-correct form-container__input form-container__input--colum input-year" placeholder="YY" inputmode="numeric" type="text" id="date-year" maxlength="2">
                         <p class="form-container__container__errortext">Can't be blank</p>
                     </div>
                 </div>
                 <div class="form-container__container">
                     <label class="form-container__label" for="segurity-code">CVC</label>
-                    <input class="form-container__input form-container__input--cvc input-cvc" placeholder="e.g. 123" inputmode="numeric"  type="text" id="segurity-code" maxlength="3">
+                    <input name="card-cvc" class="form-container__input-correct form-container__input form-container__input--cvc input-cvc" placeholder="e.g. 123" inputmode="numeric"  type="text" id="segurity-code" maxlength="3">
                     <p class="form-container__container__errortext">Can't be blank</p>
                 </div>
             </div>
