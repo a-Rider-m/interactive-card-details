@@ -58,6 +58,26 @@ everyInput.forEach((input) => {
 
 formulario.addEventListener('submit', (e)=> {
     e.preventDefault();
+
+    let formValido = true;
+    let mensaje = "";
+
+    everyInput.forEach((input) => {
+        if(!input.value) {
+            formValido = false;
+            mensaje += "Por favor, completar el campo " + input.name + "\n";
+        } else if (input.classList.contains('form-container__error-format')) {
+            formValido = false;
+            mensaje += "Por favor, corregir el campo " + input.name + "\n";
+        }
+    });
+
+    if(!formValido) {
+        alert(mensaje);
+    }else {
+        exitoFormulario();
+    }
+
 });  
 
 //Formato de tarjeta bancaria
@@ -67,13 +87,13 @@ const cleave = new Cleave('.card-number', {
 
 //Funcion para actualizar en tiempo real los datos de tarjeta
 function updateCardInfo (inputSelector, outPutSelector, defaulText) {
-    const inputs = document.querySelector(inputSelector);
+    const input = document.querySelector(inputSelector);
     const outPutCard = document.querySelector(outPutSelector);
 
-    inputs.addEventListener('input', () => {
-        outPutCard.innerText = inputs.value;
+    input.addEventListener('input', () => {
+        outPutCard.innerText = input.value;
     
-        if(inputs.value.length === 0) {
+        if(input.value.length === 0) {
             outPutCard.innerText = defaulText;
         }
     });
@@ -85,17 +105,15 @@ updateCardInfo('.input-month', '.card-container__month', "00");
 updateCardInfo('.input-year', '.card-container__year', "00");
 updateCardInfo('.input-cvc', '.card-container__segurity-code', "000");
 
-//Funciones para botones
-confirmButton.addEventListener('click', () => {
+function exitoFormulario() {
     const isFormInactive = formContainer.classList.contains('inactive');
 
     if (!isFormInactive) {
         formContainer.classList.add('inactive');
         successContainer.classList.toggle('inactive');
     }
-});
+}
 
 continueButton.addEventListener('click', () => {
     document.location.reload();
 });
-
