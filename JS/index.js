@@ -10,9 +10,11 @@ const successContainer = document.querySelector('.success-container');
 
 const everyInput = document.querySelectorAll('.form-container__input')
 const expresiones = {
-    name: /^[a-zA-Z\ ]{2,30}$/, //letras, espacios
-    number: /^3[47][0-9]{13}$/,
-    month: /^[1-12]$/,
+    name: /^[A-Za-zÁ-Úá-úüÜñÑ]+(?:\s[A-Za-zÁ-Úá-úüÜñÑ]+)*$/, 
+    number: /^\d(?:\s?\d){15}$/,
+    month: /^(0[1-9]|1[0-2])$/,
+    year: /^\d{2}$/,
+    cvc: /^\d{3}$/
 }
 
 
@@ -20,32 +22,32 @@ const expresiones = {
 function validarFormulario(e) {
     switch(e.target.name) {
         case "card-holder":
-            validarCampo('name-card', expresiones.name, e.target);
+            validarCampo('name-card', "name", expresiones.name, e.target);
         break;
         case "card-number":
-            validarCampo('number-card', expresiones.name, e.target);
+            validarCampo('number-card', "number", expresiones.number, e.target);
         break;
         case "card-month":
-            validarCampo('date-month', expresiones.month, e.target);
+            validarCampo('date-month', "date", expresiones.month, e.target);
         break;
         case "card-year":
-            validarCampo('number-card', expresiones.name, e.target);
+            validarCampo('date-year', "", expresiones.year, e.target);
         break;
         case "card-cvc":
-            validarCampo('number-card', expresiones.name, e.target);
+            validarCampo('segurity-code', "cvc", expresiones.cvc, e.target);
         break;
     }
 };
 
-function validarCampo(className, expresion, input) {
+function validarCampo(idName, className, expresion, input) {
     if(expresion.test(input.value)) {
-        document.getElementById(className).classList.remove('form-container__error-format');
-        document.getElementById(className).classList.add('form-container__input-correct');
-        document.querySelector('.form-container__container__errortext').classList.remove('form-container__container__errortext--activo'); 
+        document.getElementById(idName).classList.remove('form-container__error-format');
+        document.getElementById(idName).classList.add('form-container__input-correct');
+        document.querySelector(`.error-text--${className}`).classList.remove('error-text--active'); 
     }else {
-        document.getElementById(className).classList.add('form-container__error-format');
-        document.getElementById(className).classList.remove('form-container__input-correct'); 
-        document.querySelector('.form-container__container__errortext').classList.add('form-container__container__errortext--activo'); 
+        document.getElementById(idName).classList.add('form-container__error-format');
+        document.getElementById(idName).classList.remove('form-container__input-correct'); 
+        document.querySelector(`.error-text--${className}`).classList.add('error-text--active'); 
     }
 }
 

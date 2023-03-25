@@ -197,14 +197,14 @@ body {
     outline: none;
 }
 
-.form-container__container__errortext {
+.form-container__errortext {
     display: none;
     margin-top: 10px;
     font-size: 1.1rem;
     color: var(--red);
 }
 
-.form-container__container__errortext--activo {
+.error-text--active {
     display: block;
 }
 
