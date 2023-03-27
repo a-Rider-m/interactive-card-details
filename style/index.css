@@ -208,6 +208,11 @@ body {
     display: block;
 }
 
+.form-container__date-cvc {
+    grid-template-rows: 1fr 2fr 1fr;
+    align-items: center;
+}
+
 .form-container__container--colum {
     margin: 0;
     grid-template-columns: repeat(2, 1fr);
@@ -280,7 +285,7 @@ body {
 
 @media (min-width: 1366px) {
     body {
-        max-width: 1440px;
+        max-width: none;
         min-width: none;
     }
 

@@ -10,7 +10,7 @@ const successContainer = document.querySelector('.success-container');
 
 const everyInput = document.querySelectorAll('.form-container__input')
 const expressions = {
-    name: /^[A-Za-zÁ-Úá-úüÜñÑ]+(?:\s[A-Za-zÁ-Úá-úüÜñÑ]+)*$/, 
+    name: /^[A-Za-zÁ-Úá-úüÜñÑ]+(?:\s[A-Za-zÁ-Úá-úüÜñÑ]+)*\s?$/, 
     cardNumber: /^\d(?:\s?\d){15}$/,
     month: /^(0[1-9]|1[0-2])$/,
     year: /^\d{2}$/,
@@ -34,7 +34,7 @@ function validateForm(e) {
             validateField('date-month', "date", expressions.month, e.target);
         break;
         case "card-year":
-            validateField('date-year', "", expressions.year, e.target);
+            validateField('date-year', "date", expressions.year, e.target);
         break;
         case "card-cvc":
             validateField('segurity-code', "cvc", expressions.cvc, e.target);
@@ -48,10 +48,16 @@ function validateField(idName, className, expresion, input) {
         document.getElementById(idName).classList.remove('form-container__error-format');
         document.getElementById(idName).classList.add('form-container__input-correct');
         document.querySelector(`.error-text--${className}`).classList.remove('error-text--active'); 
+    }else if(input.value.length === 0) {
+        document.getElementById(idName).classList.add('form-container__error-format');
+        document.getElementById(idName).classList.remove('form-container__input-correct'); 
+        document.querySelector(`.error-text--${className}`).classList.add('error-text--active');
+        document.querySelector(`.error-text--${className}`).innerText = "Can't be blank";
     }else {
         document.getElementById(idName).classList.add('form-container__error-format');
         document.getElementById(idName).classList.remove('form-container__input-correct'); 
-        document.querySelector(`.error-text--${className}`).classList.add('error-text--active'); 
+        document.querySelector(`.error-text--${className}`).classList.add('error-text--active');
+        document.querySelector(`.error-text--${className}`).innerText = "Wrong format";
     }
 }
 
@@ -71,17 +77,17 @@ form.addEventListener('submit', (e)=> {
     everyInput.forEach((input) => {
         if(!input.value) {
             formValido = false;
-            mensaje += "Por favor, completar el campo " + input.name + "\n";
+            mensaje += "Please, correct the field " + input.name + "\n";
         } else if (input.classList.contains('form-container__error-format')) {
             formValido = false;
-            mensaje += "Por favor, corregir el campo " + input.name + "\n";
+            mensaje += "Please, correct the field " + input.name + "\n";
         }
     });
 
     if(!formValido) {
         alert(mensaje);
     }else {
-        exitoFormulario();
+        submitSuccess();
     }
 
 });  
@@ -107,7 +113,7 @@ updateCardInfo('.input-year', '.card-container__year', "00");
 updateCardInfo('.input-cvc', '.card-container__segurity-code', "000");
 
 //Funcion que marca como exitosa la informacion en cada campo
-function exitoFormulario() {
+function submitSuccess() {
     const isFormInactive = formContainer.classList.contains('inactive');
 
     if (!isFormInactive) {

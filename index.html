@@ -29,26 +29,26 @@
              <div class="form-container__container">
                 <label class="form-container__label" for="name-card">CARDHOLDER NAME</label>
                 <input name="card-holder" class="form-container__input-correct form-container__input card-holder-name" placeholder="e.g. Oswaldito Jose" type="text" id="name-card">
-                <p class="form-container__errortext error-text--name">Name cannot be left blank and can only contain letters.</p>
+                <p class="form-container__errortext error-text--name"></p>
             </div>
             <div class="form-container__container">
                 <label class="form-container__label" for="number-card">CARD NUMBER</label>
                 <input name="card-number" class="form-container__input-correct form-container__input card-number" placeholder="e.g. 1234 5678 9129 0000" inputmode="numeric" type="text" id="number-card"">
-                <p class="form-container__errortext error-text--number">16 digits are required</p>
+                <p class="form-container__errortext error-text--number"></p>
             </div>
             <div class="form-container__container form-container__container--colum">
-                <div class="form-container__container">
+                <div class="form-container__container form-container__date-cvc">
                     <label class="form-container__label" for="date-month date-year">EXP. DATE (MM/YY)</label>
                     <div class="form-container__container form-container__container--colum">
                         <input name="card-month" class="form-container__input-correct form-container__input form-container__input--colum input-month" placeholder="MM" inputmode="numeric" type="text" id="date-month" maxlength="2">
                         <input name="card-year" class="form-container__input-correct form-container__input form-container__input--colum input-year" placeholder="YY" inputmode="numeric" type="text" id="date-year" maxlength="2">
-                        <p class="form-container__errortext error-text--date">Invalid value. Please enter a number from 01 to 12.</p>
                     </div>
+                    <p class="form-container__errortext error-text--date"></p>
                 </div>
-                <div class="form-container__container">
+                <div class="form-container__container form-container__date-cvc">
                     <label class="form-container__label" for="segurity-code">CVC</label>
                     <input name="card-cvc" class="form-container__input-correct form-container__input form-container__input--cvc input-cvc" placeholder="e.g. 123" inputmode="numeric"  type="text" id="segurity-code" maxlength="3">
-                    <p class="form-container__errortext error-text--cvc">Can't be blank</p>
+                    <p class="form-container__errortext error-text--cvc"></p>
                 </div>
             </div>
             <input value="Confirm" class="main-button" type="submit">
